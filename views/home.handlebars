@@ -1,0 +1,53 @@
+
+<div class="container-fliud">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <form id="formContact" action="/done" method="GET" >
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Nome</label>
+                                    <input type="text" class="form-control form-control-sm" />
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="text" class="form-control form-control-sm" />
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <button class="btn btn-primary">Enviar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <h5 class="mt-0">Principais produtos</h5>
+            <p>Esses são nossos principais produtos</p>
+
+            <ul class="list-group">
+                {{#each data.products }}
+                <li class="list-group-item">
+                    <span>{{name}}</span><span class="mx-3 text-success">Preço: R$ {{price}}</span>
+                    {{#unless hasStock}}
+                    <small class="text-danger">Disponível em breve</small>
+                    {{/unless}}
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</div>
+
+{{#section 'script'}}
+
+<script src="/js/home.js"></script>
+
+{{/section}}
